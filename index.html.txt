@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Treasure Hunt: My Life</title>
+<style>
+body {
+font-family: Arial, sans-serif;
+background-color: #f0f8ff;
+margin: 0;
+padding: 20px;
+display: flex;
+flex-direction: column;
+align-items: center;
+}
+#treasure-hunt {
+max-width: 600px;
+width: 100%;
+border: 2px solid #000;
+padding: 20px;
+background-color: #fff;
+}
+.clue {
+display: none;
+}
+.clue.active {
+display: block;
+}
+input[type="text"] {
+width: 100%;
+padding: 10px;
+margin-top: 10px;
+margin-bottom: 20px;
+font-size: 16px;
+}
+button {
+padding: 10px 20px;
+font-size: 16px;
+cursor: pointer;
+}
+.end-message {
+display: none;
+font-size: 20px;
+font-weight: bold;
+color: green;
+}
+</style>
+</head>
+<body>
+<div id="treasure-hunt">
+<h1>Treasure Hunt: My Life</h1>
+<div id="clue1" class="clue active">
+<p>Clue 1: I was born in the year that marked the beginning of a new millennium. What year was it?</p>
+<input type="text" id="answer1">
+<button onclick="checkAnswer(1, 2000)">Submit</button>
+</div>
+<div id="clue2" class="clue">
+<p>Clue 2: My favorite hobby is one that involves strings and a bow. What is it?</p>
+<input type="text" id="answer2">
+<button onclick="checkAnswer(2, 'violin')">Submit</button>
+</div>
+<div id="clue3" class="clue">
+<p>Clue 3: I studied Computer Science at a university known for its technology programs. Which university is it?</p>
+<input type="text" id="answer3">
+<button onclick="checkAnswer(3, 'MIT')">Submit</button>
+</div>
+<div id="clue4" class="clue">
+<p>Clue 4: My favorite cuisine involves sushi and ramen. What cuisine is this?</p>
+<input type="text" id="answer4">
+<button onclick="checkAnswer(4, 'Japanese')">Submit</button>
+</div>
+<div id="clue5" class="clue">
+<p>Clue 5: I have a pet that barks. What kind of pet is it?</p>
+<input type="text" id="answer5">
+<button onclick="checkAnswer(5, 'dog')">Submit</button>
+</div>
+<div id="clue6" class="clue">
+<p>Clue 6: My dream job involves creating and improving software. What is my profession?</p>
+<input type="text" id="answer6">
+<button onclick="checkAnswer(6, 'software developer')">Submit</button>
+</div>
+<div id="clue7" class="clue">
+<p>Clue 7: I love to travel. My favorite city is known as the City of Light. Which city is it?</p>
+<input type="text" id="answer7">
+<button onclick="checkAnswer(7, 'Paris')">Submit</button>
+</div>
+<div id="clue8" class="clue">
+<p>Clue 8: In my free time, I enjoy reading books, especially in the genre that involves magic and wizards. What genre is this?</p>
+<input type="text" id="answer8">
+<button onclick="checkAnswer(8, 'fantasy')">Submit</button>
+</div>
+<div id="clue9" class="clue">
+<p>Clue 9: My favorite sport is played on a court and involves a net. What sport is it?</p>
+<input type="text" id="answer9">
+<button onclick="checkAnswer(9, 'tennis')">Submit</button>
+</div>
+<div id="clue10" class="clue">
+<p>Clue 10: I believe in continuous learning and growth. The platform I use most for online courses shares its name with a common type of stone. What platform is this?</p>
+<input type="text" id="answer10">
+<button onclick="checkAnswer(10, 'Udemy')">Submit</button>
+</div>
+<div class="end-message" id="end-message">
+<p>Congratulations! You have completed the treasure hunt. I'll talk to you in 1-2 days!</p>
+</div>
+</div>
+<script>
+function checkAnswer(clueNumber, correctAnswer) {
+const userAnswer = document.getElementById('answer' + clueNumber).value.trim().toLowerCase();
+const formattedCorrectAnswer = correctAnswer.toString().trim().toLowerCase();
+
+if (userAnswer === formattedCorrectAnswer) {
+document.getElementById('clue' + clueNumber).classList.remove('active');
+if (clueNumber < 10) {
+document.getElementById('clue' + (clueNumber + 1)).classList.add('active');
+} else {
+document.getElementById('end-message').style.display = 'block';
+}
+} else {
+alert('Incorrect answer. Please try again.');
+}
+}
+</script>
+</body>
+</html>
